@@ -169,7 +169,41 @@ public class login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
-        
+        String username = log_u.getText();
+        String password = String.valueOf(log_pass.getPassword());
+        if(username.isEmpty() || password.isEmpty()){
+            JOptionPane.showMessageDialog(this, "Username / Password is empty.",
+                "Error", JOptionPane.ERROR_MESSAGE);
+        }else{
+            
+            Connection dbcon = dbconnect.connectDB();
+        if(dbcon != null){
+        try {
+            PreparedStatement st = (PreparedStatement)    
+            dbcon.prepareStatement("Select * from useradmin WHERE username = ? AND password = ? ");
+            
+            
+            
+            st.setString(1, username);
+            st.setString(2, password);
+            ResultSet rs = st.executeQuery();
+            if(rs.next()){
+               dispose();
+               home hm = new home();
+               hm.setVisible(true);
+            }else{
+                System.out.println("username" + username);
+                System.out.println("password" + password);
+            JOptionPane.showMessageDialog(this, "Username / Password  not found.", "Error", JOptionPane.ERROR_MESSAGE);
+
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(login.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        }else{
+           System.out.println("The connection is not available");
+        }
+      }
     }//GEN-LAST:event_loginActionPerformed
 
     private void registrationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrationActionPerformed
