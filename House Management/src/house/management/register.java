@@ -234,7 +234,40 @@ public class register extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void submitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitActionPerformed
-        
+        String n = name.getText();
+        String e = email.getText();
+        String phn = phone.getText();
+        String users = username.getText();
+        String pass = String.valueOf(password.getPassword());
+        String addr = address.getText();
+        if(n.isEmpty() || e.isEmpty() || phn.isEmpty() || users.isEmpty() || pass.isEmpty() || addr.isEmpty()){
+            JOptionPane.showMessageDialog(this, "Fill up the form properly.",
+                "Error", JOptionPane.ERROR_MESSAGE);
+        }else{
+            
+            Connection dbcon = dbconnect.connectDB();
+        if(dbcon != null){
+        try {
+            PreparedStatement st = (PreparedStatement)    
+            dbcon.prepareStatement("INSERT INTO useradmin (name,email,phone,username,password,address) VALUES(?,?,?,?,?,?)");
+            
+             st.setString(1, n);
+            st.setString(2, e);
+            st.setString(3, phn);
+            st.setString(4, users);
+            st.setString(5, pass);
+            st.setString(6, addr);
+                        
+            int rs = st.executeUpdate();
+            
+            
+            } catch (SQLException ex) {
+            Logger.getLogger(register.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        }else{
+           System.out.println("The connection is not available");
+        }
+      }
     }//GEN-LAST:event_submitActionPerformed
 
     private void backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backActionPerformed
