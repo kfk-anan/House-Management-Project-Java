@@ -238,7 +238,9 @@ public class register extends javax.swing.JFrame {
     }//GEN-LAST:event_submitActionPerformed
 
     private void backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backActionPerformed
-        
+        login ln = new login();
+        ln.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_backActionPerformed
 
     /**
