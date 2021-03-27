@@ -375,50 +375,30 @@ public class add_tenter extends javax.swing.JFrame {
     }//GEN-LAST:event_saveActionPerformed
 
     private void flat_searchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_flat_searchActionPerformed
-String fl = flat.getText();
-        String nm = name.getText();
-        String gen = String.valueOf(gender.getSelectedItem());
-        String mem = member.getText();
-        String con = contact.getText();
-        String addr = address.getText();
-        String ni = nid.getText();
-        String mon = String.valueOf(months.getSelectedItem());
-        if(fl.isEmpty() || nm.isEmpty() || gen.isEmpty() || mem.isEmpty() ||
-                con.isEmpty() || addr.isEmpty()|| ni.isEmpty()|| mon.isEmpty()){
-             JOptionPane.showMessageDialog(this, "Fill up the form properly.", 
-                     "Error", JOptionPane.ERROR_MESSAGE);
-        }else{
-            
-             Connection dbcon = dbconnect.connectDB();
-            
-            try {
-                PreparedStatement st = (PreparedStatement)    
-                dbcon.prepareStatement("INSERT INTO add_tenter (flat,name,gender,member,contact,address,nid,month) VALUES(?,?,?,?,?,?,?,?)");
-            
-            
-            
-            st.setString(1, fl);
-            st.setString(2, nm);
-            st.setString(3, gen);
-            st.setString(4, mem);
-            st.setString(5, con);
-            st.setString(6, addr);
-            st.setString(7, ni);
-            st.setString(8, mon);
-            
-           
-            
-            
-            int rs = st.executeUpdate();
-            
-            JOptionPane.showMessageDialog(this, "Add Successful.", 
-                    "Success", JOptionPane.INFORMATION_MESSAGE);
-            
-            } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(this, "Fill up the form properly.", 
-                     "Error", JOptionPane.ERROR_MESSAGE);
-        }
+
+        String fl = flat.getText();
         
+        Connection dbcon = dbconnect.connectDB();
+         try {
+                
+            PreparedStatement st = (PreparedStatement)    
+            dbcon.prepareStatement("select * from add_tenter where flat=?");
+            st.setString(1, fl);
+            ResultSet rs = st.executeQuery();
+            if(rs.next()){
+                name.setText(rs.getString("name"));
+                gender.setSelectedItem(rs.getString("gender"));
+                member.setText(rs.getString("member"));
+                contact.setText(rs.getString("contact"));
+                address.setText(rs.getString("address"));                
+                nid.setText(rs.getString("nid"));
+                months.setSelectedItem(rs.getString("month"));
+                             
+            } 
+                else{
+                       JOptionPane.showMessageDialog(null, "Not Found...!!!");        
+            }
+            } catch (SQLException ex) {
         }
     }//GEN-LAST:event_flat_searchActionPerformed
 
