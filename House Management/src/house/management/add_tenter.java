@@ -370,7 +370,51 @@ public class add_tenter extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveActionPerformed
+         String fl = flat.getText();
+        String nm = name.getText();
+        String gen = String.valueOf(gender.getSelectedItem());
+        String mem = member.getText();
+        String con = contact.getText();
+        String addr = address.getText();
+        String ni = nid.getText();
+        String mon = String.valueOf(months.getSelectedItem());
+        if(fl.isEmpty() || nm.isEmpty() || gen.isEmpty() || mem.isEmpty() ||
+                con.isEmpty() || addr.isEmpty()|| ni.isEmpty()|| mon.isEmpty()){
+             JOptionPane.showMessageDialog(this, "Fill up the form properly.", 
+                     "Error", JOptionPane.ERROR_MESSAGE);
+        }else{
+            
+             Connection dbcon = dbconnect.connectDB();
+            
+            try {
+                PreparedStatement st = (PreparedStatement)    
+                dbcon.prepareStatement("INSERT INTO add_tenter (flat,name,gender,member,contact,address,nid,month) VALUES(?,?,?,?,?,?,?,?)");
+            
+            
+            
+            st.setString(1, fl);
+            st.setString(2, nm);
+            st.setString(3, gen);
+            st.setString(4, mem);
+            st.setString(5, con);
+            st.setString(6, addr);
+            st.setString(7, ni);
+            st.setString(8, mon);
+            
+           
+            
+            
+            int rs = st.executeUpdate();
+            
+            JOptionPane.showMessageDialog(this, "Add Successful.", 
+                    "Success", JOptionPane.INFORMATION_MESSAGE);
+            
+            } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(this, "Fill up the form properly.", 
+                     "Error", JOptionPane.ERROR_MESSAGE);
+        }
         
+        }
         
     }//GEN-LAST:event_saveActionPerformed
 
