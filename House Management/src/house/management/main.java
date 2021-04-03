@@ -9,15 +9,24 @@ public class main extends JFrame implements ActionListener {
    Button b1,b2,b3,b4,b5,b6,b7,b8,b9;  
 main(){  
     super("House Management");  
-    b1=new Button("1");   
-    b2=new Button("2");  
-    b3=new Button("3");    
-    b4=new Button("4");  
-    b5=new Button("5");  
-    b6=new Button("6");   
-    b7=new Button("7");  
-    b8=new Button("");  
-    b9=new Button("8");  
+    b1=new Button("1");
+    b1.setBackground(Color.CYAN);
+    b2=new Button("2");
+    b2.setBackground(Color.CYAN);
+    b3=new Button("3");
+    b3.setBackground(Color.CYAN);
+    b4=new Button("4");
+    b4.setBackground(Color.CYAN);
+    b5=new Button("5");
+    b5.setBackground(Color.CYAN);
+    b6=new Button("6");
+    b6.setBackground(Color.CYAN);
+    b7=new Button("7");
+    b7.setBackground(Color.CYAN);
+    b8=new Button("");
+    b8.setBackground(Color.CYAN);
+    b9=new Button("8");
+    b9.setBackground(Color.CYAN);
  
     b1.setBounds(10,30,100,100);
     b2.setBounds(120,30,100,100);  
@@ -44,7 +53,7 @@ main(){
     b9.addActionListener(this);  
 
     
-    setSize(360,480);  
+    setSize(360,430);  
     setLayout(null);  
     setVisible(true);
     setLocation(667, 387); 
