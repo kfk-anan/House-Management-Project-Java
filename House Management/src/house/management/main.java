@@ -3,30 +3,35 @@ package house.management;
 
 import java.awt.*;  
 import java.awt.event.*;  
-import javax.swing.JOptionPane; 
+import javax.swing.*; 
 
-public class main extends Frame implements ActionListener {
+public class main extends JFrame implements ActionListener {
    Button b1,b2,b3,b4,b5,b6,b7,b8,b9;  
 main(){  
     super("House Management");  
-    b1=new Button("1");  
-    b1.setBounds(50,100,40,40);  
+    b1=new Button("1");   
     b2=new Button("2");  
-    b2.setBounds(100,100,40,40);  
-    b3=new Button("3");  
-    b3.setBounds(150,100,40,40);  
+    b3=new Button("3");    
     b4=new Button("4");  
-    b4.setBounds(50,150,40,40);  
     b5=new Button("5");  
-    b5.setBounds(100,150,40,40);  
-    b6=new Button("6");  
-    b6.setBounds(150,150,40,40);  
+    b6=new Button("6");   
     b7=new Button("7");  
-    b7.setBounds(50,200,40,40);  
     b8=new Button("");  
-    b8.setBounds(100,200,40,40);  
     b9=new Button("8");  
-    b9.setBounds(150,200,40,40);  
+ 
+    b1.setBounds(10,30,100,100);
+    b2.setBounds(120,30,100,100);  
+    b3.setBounds(230,30,100,100);  
+    b4.setBounds(10,140,100,100);  
+    b5.setBounds(120,140,100,100);  
+    b6.setBounds(230,140,100,100);  
+    b7.setBounds(10,250,100,100);  
+    b8.setBounds(120,250,100,100);  
+    b9.setBounds(230,250,100,100);
+    
+    add(b1);add(b2);add(b3);
+    add(b4);add(b5);add(b6);
+    add(b7);add(b8);add(b9);
       
     b1.addActionListener(this);  
     b2.addActionListener(this);  
@@ -37,12 +42,16 @@ main(){
     b7.addActionListener(this);  
     b8.addActionListener(this);  
     b9.addActionListener(this);  
-      
-    add(b1);add(b2);add(b3);add(b4);add(b5);add(b6);add(b7);add(b8);add(b9);  
-    setSize(400,400);  
+
+    
+    setSize(360,480);  
     setLayout(null);  
-    setVisible(true);  
+    setVisible(true);
+    setLocation(667, 387); 
+    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    
 }  
+
 public void actionPerformed(ActionEvent e){  
     if(e.getSource()==b1){  
         String label=b1.getLabel();  
