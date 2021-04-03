@@ -8,14 +8,14 @@ import javax.swing.JOptionPane;
 public class main extends Frame implements ActionListener {
    Button b1,b2,b3,b4,b5,b6,b7,b8,b9;  
 main(){  
-    super("Puzzle - JavaTpoint");  
+    super("House Management");  
     b1=new Button("1");  
     b1.setBounds(50,100,40,40);  
     b2=new Button("2");  
     b2.setBounds(100,100,40,40);  
     b3=new Button("3");  
     b3.setBounds(150,100,40,40);  
-    b4=new Button("");  
+    b4=new Button("4");  
     b4.setBounds(50,150,40,40);  
     b5=new Button("5");  
     b5.setBounds(100,150,40,40);  
@@ -23,9 +23,9 @@ main(){
     b6.setBounds(150,150,40,40);  
     b7=new Button("7");  
     b7.setBounds(50,200,40,40);  
-    b8=new Button("8");  
+    b8=new Button("");  
     b8.setBounds(100,200,40,40);  
-    b9=new Button("4");  
+    b9=new Button("8");  
     b9.setBounds(150,200,40,40);  
       
     b1.addActionListener(this);  
