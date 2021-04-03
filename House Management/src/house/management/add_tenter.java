@@ -346,36 +346,116 @@ public class add_tenter extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
+       add_tenter at = new add_tenter(); 
+       at.setVisible(true);
+       this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        
+       payment py = new payment();
+        py.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        
+       full_his fh = new full_his();
+       fh.setVisible(true);
+       this.dispose();
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        
+      delete_tenter dt = new delete_tenter();
+      dt.setVisible(true);
+      this.dispose();
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        
+     record_update ru = new record_update();
+     ru.setVisible(true);
+     this.dispose();
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        
+     login ln = new login();
+     ln.setVisible(true);
+     this.dispose();
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveActionPerformed
+         String fl = flat.getText();
+        String nm = name.getText();
+        String gen = String.valueOf(gender.getSelectedItem());
+        String mem = member.getText();
+        String con = contact.getText();
+        String addr = address.getText();
+        String ni = nid.getText();
+        String mon = String.valueOf(months.getSelectedItem());
+        if(fl.isEmpty() || nm.isEmpty() || gen.isEmpty() || mem.isEmpty() ||
+                con.isEmpty() || addr.isEmpty()|| ni.isEmpty()|| mon.isEmpty()){
+             JOptionPane.showMessageDialog(this, "Fill up the form properly.", 
+                     "Error", JOptionPane.ERROR_MESSAGE);
+        }else{
+            
+             Connection dbcon = dbconnect.connectDB();
+            
+            try {
+                PreparedStatement st = (PreparedStatement)    
+                dbcon.prepareStatement("INSERT INTO add_tenter (flat,name,gender,member,contact,address,nid,month) VALUES(?,?,?,?,?,?,?,?)");
+            
+            
+            
+            st.setString(1, fl);
+            st.setString(2, nm);
+            st.setString(3, gen);
+            st.setString(4, mem);
+            st.setString(5, con);
+            st.setString(6, addr);
+            st.setString(7, ni);
+            st.setString(8, mon);
+            
+           
+            
+            
+            int rs = st.executeUpdate();
+            
+            JOptionPane.showMessageDialog(this, "Add Successful.", 
+                    "Success", JOptionPane.INFORMATION_MESSAGE);
+            
+            } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(this, "Fill up the form properly.", 
+                     "Error", JOptionPane.ERROR_MESSAGE);
+        }
         
+        }
         
     }//GEN-LAST:event_saveActionPerformed
 
     private void flat_searchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_flat_searchActionPerformed
+
+        String fl = flat.getText();
         
+        Connection dbcon = dbconnect.connectDB();
+         try {
+                
+            PreparedStatement st = (PreparedStatement)    
+            dbcon.prepareStatement("select * from add_tenter where flat=?");
+            st.setString(1, fl);
+            ResultSet rs = st.executeQuery();
+            if(rs.next()){
+                name.setText(rs.getString("name"));
+                gender.setSelectedItem(rs.getString("gender"));
+                member.setText(rs.getString("member"));
+                contact.setText(rs.getString("contact"));
+                address.setText(rs.getString("address"));                
+                nid.setText(rs.getString("nid"));
+                months.setSelectedItem(rs.getString("month"));
+                             
+            } 
+                else{
+                       JOptionPane.showMessageDialog(null, "Not Found...!!!");        
+            }
+            } catch (SQLException ex) {
+        }
     }//GEN-LAST:event_flat_searchActionPerformed
 
     /**
