@@ -252,7 +252,7 @@ public class register extends javax.swing.JFrame {
             PreparedStatement st = (PreparedStatement)    
             dbcon.prepareStatement("INSERT INTO useradmin (name,email,phone,username,password,address) VALUES(?,?,?,?,?,?)");
             
-             st.setString(1, n);
+            st.setString(1, n);
             st.setString(2, e);
             st.setString(3, phn);
             st.setString(4, users);

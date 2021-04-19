@@ -10,7 +10,8 @@ public class full_his extends javax.swing.JFrame {
 
    
     public full_his() {
-        initComponents();
+        super("Full History");
+        initComponents();   
     }
 
   
