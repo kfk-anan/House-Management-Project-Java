@@ -343,38 +343,98 @@ public class delete_tenter extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
+        add_tenter at = new add_tenter();
+        at.setVisible(true);
+        this.dispose();        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        
+        payment py = new payment();
+        py.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        
+        full_his fh = new full_his();
+        fh.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        
+        record_update ru = new record_update();
+        ru.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        
+        delete_tenter dt = new delete_tenter();
+        dt.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        
+        login ln = new login();
+        ln.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void flat_searchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_flat_searchActionPerformed
-        
+        String fl = flat.getText();
+
+        Connection dbcon = dbconnect.connectDB();
+          try {
+              PreparedStatement st = (PreparedStatement)    
+            dbcon.prepareStatement("select * from add_tenter where flat=?");
+            st.setString(1, fl);
+            ResultSet rs = st.executeQuery();
+            if(rs.next()){
+                name.setText(rs.getString("name"));
+                gender.setSelectedItem(rs.getString("gender"));
+                member.setText(rs.getString("member"));
+                contact.setText(rs.getString("contact"));
+                address.setText(rs.getString("address"));                
+                nid.setText(rs.getString("nid"));
+                months.setSelectedItem(rs.getString("month"));
+                                        
+            } 
+                else{
+                       JOptionPane.showMessageDialog(null, "Not Found...!!!");        
+            }      
+        }catch (SQLException ex) {
+      }
     }//GEN-LAST:event_flat_searchActionPerformed
 
     private void deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteActionPerformed
-       
+        Connection dbcon = dbconnect.connectDB();
         
-        
+        try {
+            deleteItem = JOptionPane.showConfirmDialog(null,"Confirm if you want to delete info",
+                 "Warning",JOptionPane.YES_NO_OPTION);
+             if (deleteItem ==JOptionPane.YES_OPTION ) 
+             {
+            PreparedStatement st = (PreparedStatement)    
+            dbcon.prepareStatement("delete from add_tenter where flat =?");
+            
+            
+            
+            st.setString(1, flat.getText());
+            
+            
+            
+            int rs = st.executeUpdate();
+            
+            JOptionPane.showMessageDialog(this, "Delete Successful.", 
+                    "Success", JOptionPane.INFORMATION_MESSAGE);
+            
+           
+             
+           }
+            
 
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(delete_tenter.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_deleteActionPerformed
 
     /**
