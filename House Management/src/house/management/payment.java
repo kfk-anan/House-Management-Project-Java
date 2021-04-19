@@ -389,8 +389,6 @@ public class payment extends javax.swing.JFrame {
 
     private void saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveActionPerformed
         
-        
-
     }//GEN-LAST:event_saveActionPerformed
 
     private void gas_billActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gas_billActionPerformed
