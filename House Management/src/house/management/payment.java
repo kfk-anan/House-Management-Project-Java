@@ -388,6 +388,66 @@ public class payment extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveActionPerformed
+   String fl = flat.getText();
+        String nm = name.getText();
+        SimpleDateFormat da = new SimpleDateFormat("dd-MM-yyyy");
+        String dat = da.format(date.getDate());
+        String ren = rent_amo.getText();
+        String eb = e_bill.getText();
+        String gb = gas_bill.getText();
+        String mai = main.getText();
+        String tot = total.getText();
+        if(fl.isEmpty() || nm.isEmpty() || dat.isEmpty() || ren.isEmpty() ||
+                eb.isEmpty() || gb.isEmpty()|| mai.isEmpty()|| tot.isEmpty()){
+             JOptionPane.showMessageDialog(this, "Fill up the form properly.", 
+                     "Error", JOptionPane.ERROR_MESSAGE);
+        }else{
+        
+            
+             Connection dbcon = dbconnect.connectDB();
+            
+            try {
+                PreparedStatement st = (PreparedStatement)    
+                dbcon.prepareStatement("INSERT INTO payment (flat, name, date, rent_amount, "
+                        + "electic_bill, gas_bill, maintanence, total) VALUES(?,?,?,?,?,?,?,?)");
+            
+            
+            
+            st.setString(1, fl);
+            st.setString(2, nm);
+            st.setString(3, dat);
+            st.setString(4, ren);
+            st.setString(5, eb);
+            st.setString(6, gb);
+            st.setString(7, mai);
+            st.setString(8, tot);
+            
+           
+            
+            
+            int rs = st.executeUpdate();
+            
+            JOptionPane.showMessageDialog(this, "Add Successful.", 
+                    "Success", JOptionPane.INFORMATION_MESSAGE);
+
+            flat.setText("");
+            name.setText("");
+            date.getDateFormatString();
+            rent_amo.setText("");
+            e_bill.setText("");
+            gas_bill.setText("");
+            main.setText("");
+            total.setText("");
+            
+
+            
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(this, "Fill up the form properly.", 
+                     "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        
+       }
+
         
     }//GEN-LAST:event_saveActionPerformed
 
@@ -404,7 +464,25 @@ public class payment extends javax.swing.JFrame {
     }//GEN-LAST:event_flatKeyPressed
 
     private void flat_searchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_flat_searchActionPerformed
-        
+         String fl = flat.getText();
+
+        Connection dbcon = dbconnect.connectDB();
+         try {
+                
+            PreparedStatement st = (PreparedStatement)    
+            dbcon.prepareStatement("select * from add_tenter where flat=?");
+            st.setString(1, fl);
+            ResultSet rs = st.executeQuery();
+            if(rs.next()){
+                name.setText(rs.getString("name"));
+                
+                             
+            } 
+                else{
+                       JOptionPane.showMessageDialog(null, "Not Found...!!!");        
+            }
+            } catch (SQLException ex) {
+        }    
     }//GEN-LAST:event_flat_searchActionPerformed
 
     private void nameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nameKeyPressed
