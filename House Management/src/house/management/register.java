@@ -1,7 +1,7 @@
 
 package house.management;
 
-import java.sql.*;;
+import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -260,6 +260,9 @@ public class register extends javax.swing.JFrame {
             st.setString(6, addr);
                         
             int rs = st.executeUpdate();
+            
+            JOptionPane.showMessageDialog(this, "Add Successful.", 
+                    "Success", JOptionPane.INFORMATION_MESSAGE);
             
             
             } catch (SQLException ex) {
