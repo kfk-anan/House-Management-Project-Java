@@ -59,6 +59,7 @@ public class delete_tenter extends javax.swing.JFrame {
         months = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(990, 610));
 
         jPanel1.setBackground(new java.awt.Color(0, 204, 204));
         jPanel1.setPreferredSize(new java.awt.Dimension(1000, 592));
