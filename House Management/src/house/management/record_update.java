@@ -337,14 +337,15 @@ public class record_update extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1001, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1001, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
-        pack();
+        setSize(new java.awt.Dimension(1017, 631));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -384,11 +385,71 @@ public class record_update extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void flat_searchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_flat_searchActionPerformed
-        
+        String fl = flat.getText();
+
+        Connection dbcon = dbconnect.connectDB();
+         try {
+                
+            PreparedStatement st = (PreparedStatement)    
+            dbcon.prepareStatement("select * from add_tenter where flat=?");
+            st.setString(1, fl);
+            ResultSet rs = st.executeQuery();
+            if(rs.next()){
+                name.setText(rs.getString("name"));
+                gender.setSelectedItem(rs.getString("gender"));
+                member.setText(rs.getString("member"));
+                contact.setText(rs.getString("contact"));
+                address.setText(rs.getString("address"));                
+                nid.setText(rs.getString("nid"));
+                months.setSelectedItem(rs.getString("month"));
+                             
+            } 
+                else{
+                       JOptionPane.showMessageDialog(null, "Not Found...!!!");        
+            }
+            } catch (SQLException ex) {
+        }     
     }//GEN-LAST:event_flat_searchActionPerformed
 
     private void updateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateActionPerformed
+        Connection dbcon = dbconnect.connectDB();
+        
+        try {
+            PreparedStatement st = (PreparedStatement)    
+            dbcon.prepareStatement("update add_tenter set name =?, gender = ?, member =?,"
+                    + "contact =?, address =?, nid =?, month =? where flat =?");
+            
+            
+            
+            st.setString(1, name.getText());
+            st.setString(2, gender.getSelectedItem().toString()); 
+            st.setString(3, member.getText());
+            st.setString(4, contact.getText());
+            st.setString(5, address.getText());
+            st.setString(6, nid.getText());
+            st.setString(7, months.getSelectedItem().toString());
+            st.setString(8, flat.getText());
+            
+            
+            int rs = st.executeUpdate();
+            
+            JOptionPane.showMessageDialog(this, "Updated Successful.", 
+                    "Success", JOptionPane.INFORMATION_MESSAGE);
+            
+            name.setText("");
+            name.requestFocus();
+            gender.setSelectedItem("");
+            member.setText("");
+            contact.setText("");
+            address.setText("");
+            nid.setText("");
+            months.setSelectedItem("");
+            
 
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(record_update.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_updateActionPerformed
 
     /**
