@@ -164,16 +164,16 @@ public class payment extends javax.swing.JFrame {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(231, 231, 231)
+                .addGap(232, 232, 232)
                 .addComponent(jLabel2)
-                .addContainerGap(304, Short.MAX_VALUE))
+                .addContainerGap(303, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(30, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(19, 19, 19)
                 .addComponent(jLabel2)
-                .addContainerGap())
+                .addContainerGap(22, Short.MAX_VALUE))
         );
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
@@ -260,6 +260,9 @@ public class payment extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(275, 275, 275)
+                        .addComponent(save))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(147, 147, 147)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel4)
@@ -282,10 +285,7 @@ public class payment extends javax.swing.JFrame {
                                 .addComponent(flat, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(flat_search, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(name, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(277, 277, 277)
-                        .addComponent(save)))
+                            .addComponent(name, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -331,64 +331,63 @@ public class payment extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(total, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel10))
-                .addGap(34, 34, 34)
+                .addGap(59, 59, 59)
                 .addComponent(save)
-                .addGap(151, 151, 151))
+                .addGap(126, 126, 126))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1003, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 618, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
-        setSize(new java.awt.Dimension(1016, 657));
-        setLocationRelativeTo(null);
+        pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-    add_tenter at = new add_tenter();
-    at.setVisible(true);
-    this.dispose();
+       add_tenter at = new add_tenter(); 
+       at.setVisible(true);
+       this.dispose();        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-     payment py = new payment();
-     py.setVisible(true);
-     this.dispose();
+        payment py = new payment();
+        py.setVisible(true);
+        this.dispose();        
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-    full_his fh = new full_his();
-    fh.setVisible(true);
-    this.dispose();
+       full_his fh = new full_his();
+       fh.setVisible(true);
+       this.dispose();        
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-    delete_tenter dt = new delete_tenter();
-    dt.setVisible(true);
-    this.dispose();
+      delete_tenter dt = new delete_tenter();
+      dt.setVisible(true);
+      this.dispose();        
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-    record_update ru = new record_update();
-    ru.setVisible(true);
-    this.dispose();
+     record_update ru = new record_update();
+     ru.setVisible(true);
+     this.dispose();        
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-    login ln = new login();
-    ln.setVisible(true);
-    this.dispose();
+     login ln = new login();
+     ln.setVisible(true);
+     this.dispose();       
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveActionPerformed
-   String fl = flat.getText();
+        String fl = flat.getText();
         String nm = name.getText();
         SimpleDateFormat da = new SimpleDateFormat("dd-MM-yyyy");
         String dat = da.format(date.getDate());
@@ -447,8 +446,6 @@ public class payment extends javax.swing.JFrame {
         }
         
        }
-
-        
     }//GEN-LAST:event_saveActionPerformed
 
     private void gas_billActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gas_billActionPerformed
@@ -464,7 +461,7 @@ public class payment extends javax.swing.JFrame {
     }//GEN-LAST:event_flatKeyPressed
 
     private void flat_searchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_flat_searchActionPerformed
-         String fl = flat.getText();
+        String fl = flat.getText();
 
         Connection dbcon = dbconnect.connectDB();
          try {
@@ -482,7 +479,7 @@ public class payment extends javax.swing.JFrame {
                        JOptionPane.showMessageDialog(null, "Not Found...!!!");        
             }
             } catch (SQLException ex) {
-        }    
+        }         
     }//GEN-LAST:event_flat_searchActionPerformed
 
     private void nameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nameKeyPressed

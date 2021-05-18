@@ -10,8 +10,7 @@ public class full_his extends javax.swing.JFrame {
 
    
     public full_his() {
-        super("Full History");
-        initComponents();   
+        initComponents();
     }
 
   
@@ -148,10 +147,10 @@ public class full_his extends javax.swing.JFrame {
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(30, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(19, 19, 19)
                 .addComponent(jLabel2)
-                .addContainerGap())
+                .addContainerGap(22, Short.MAX_VALUE))
         );
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -228,61 +227,107 @@ public class full_his extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1012, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 20, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 618, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
-        setSize(new java.awt.Dimension(1016, 657));
-        setLocationRelativeTo(null);
+        pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        add_tenter at = new add_tenter();
-        at.setVisible(true);
-        this.dispose();
+       add_tenter at = new add_tenter(); 
+       at.setVisible(true);
+       this.dispose();        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         payment py = new payment();
         py.setVisible(true);
-        this.dispose();
+        this.dispose();        
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        full_his fh = new full_his();
-        fh.setVisible(true);
-        this.dispose();
+       full_his fh = new full_his();
+       fh.setVisible(true);
+       this.dispose();        
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        delete_tenter dt = new delete_tenter();
-        dt.setVisible(true);
-        this.dispose();
+      delete_tenter dt = new delete_tenter();
+      dt.setVisible(true);
+      this.dispose();       
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        record_update ru = new record_update();
-        ru.setVisible(true);
-        this.dispose();
+     record_update ru = new record_update();
+     ru.setVisible(true);
+     this.dispose();        
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        login ln = new login();
-        ln.setVisible(true);
-        this.dispose();
+     login ln = new login();
+     ln.setVisible(true);
+     this.dispose();        
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void tenterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tenterActionPerformed
-        
+         try
+           { 
+              Connection dbcon = dbconnect.connectDB();
+              PreparedStatement st = (PreparedStatement)
+              dbcon.prepareStatement("select * from add_tenter");
+              ResultSet rs = st.executeQuery();
+              DefaultTableModel tm = (DefaultTableModel)jTable1.getModel();
+              tm.setRowCount(0);
+               while(rs.next())
+                        {
+                          Object o[]={
+                              rs.getString("flat"),
+                              rs.getString("name"),
+                              rs.getString("gender"),
+                              rs.getString("member"),
+                              rs.getString("contact"),
+                              rs.getString("address"),
+                              rs.getString("nid"),
+                              rs.getString("month")};
+                              tm.addRow(o);
+                         }
+            }catch(Exception e)
+                   {
+                      JOptionPane.showMessageDialog(this,e);
+              }        
 
     }//GEN-LAST:event_tenterActionPerformed
 
     private void paymentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_paymentActionPerformed
-        
+        try
+           { 
+              Connection dbcon = dbconnect.connectDB();
+              PreparedStatement st = (PreparedStatement)
+              dbcon.prepareStatement("select * from payment");
+              ResultSet rs = st.executeQuery();
+              DefaultTableModel tm = (DefaultTableModel)jTable2.getModel();
+              tm.setRowCount(0);
+               while(rs.next())
+                        {
+                          Object o[]={rs.getString("flat"),
+                              rs.getString("name"),
+                              rs.getString("date"),
+                              rs.getString("rent_amount"),
+                              rs.getString("electic_bill"),
+                              rs.getString("gas_bill"),
+                              rs.getString("maintanence"),
+                              rs.getString("total")};
+                          tm.addRow(o);
+                         }
+            }catch(Exception e)
+                   {
+                      JOptionPane.showMessageDialog(this,e);
+              }
     }//GEN-LAST:event_paymentActionPerformed
 
     /**

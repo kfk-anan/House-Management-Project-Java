@@ -1,4 +1,3 @@
-
 package house.management;
 
 import java.awt.*;  
@@ -15,7 +14,7 @@ main(){
     b2.setBackground(Color.CYAN);
     b3=new Button("3");
     b3.setBackground(Color.CYAN);
-    b4=new Button("4");
+    b4=new Button("");
     b4.setBackground(Color.CYAN);
     b5=new Button("5");
     b5.setBackground(Color.CYAN);
@@ -23,9 +22,9 @@ main(){
     b6.setBackground(Color.CYAN);
     b7=new Button("7");
     b7.setBackground(Color.CYAN);
-    b8=new Button("");
+    b8=new Button("8");
     b8.setBackground(Color.CYAN);
-    b9=new Button("8");
+    b9=new Button("4");
     b9.setBackground(Color.CYAN);
  
     b1.setBounds(10,30,100,100);

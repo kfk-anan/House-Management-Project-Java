@@ -116,7 +116,7 @@ public class home extends javax.swing.JFrame {
                 .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(162, Short.MAX_VALUE))
+                .addContainerGap(122, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -141,48 +141,47 @@ public class home extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 632, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 11, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        setSize(new java.awt.Dimension(1016, 657));
-        setLocationRelativeTo(null);
+        pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        login ln = new login();
-        ln.setVisible(true);
-        this.dispose();
+      login ln = new login();
+      ln.setVisible(true);
+      this.dispose();        
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        add_tenter at = new add_tenter();
-        at.setVisible(true);
-        this.dispose();
+      add_tenter at = new add_tenter();
+      at.setVisible(true);
+      this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        payment py = new payment();
-        py.setVisible(true);
-        this.dispose();
+       payment py = new payment();
+       py.setVisible(true);
+       this.dispose();
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        full_his fh = new full_his();
-        fh.setVisible(true);
-        this.dispose();
+      full_his fh = new full_his();
+      fh.setVisible(true);
+      this.dispose();        
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        record_update ru = new record_update();
-        ru.setVisible(true);
-        this.dispose();
+      record_update ru = new record_update();
+      ru.setVisible(true);
+      this.dispose();        
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        delete_tenter dt = new delete_tenter();
-        dt.setVisible(true);
-        this.dispose();
+      delete_tenter dt = new delete_tenter();
+      dt.setVisible(true);
+      this.dispose();        
     }//GEN-LAST:event_jButton6ActionPerformed
 
     /**
