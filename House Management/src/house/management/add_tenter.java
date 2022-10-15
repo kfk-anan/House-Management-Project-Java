@@ -339,9 +339,7 @@ public class add_tenter extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 598, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 609, Short.MAX_VALUE)
         );
 
         setSize(new java.awt.Dimension(1006, 635));
@@ -385,7 +383,7 @@ public class add_tenter extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveActionPerformed
-         String fl = flat.getText();
+        String fl = flat.getText();
         String nm = name.getText();
         String gen = String.valueOf(gender.getSelectedItem());
         String mem = member.getText();

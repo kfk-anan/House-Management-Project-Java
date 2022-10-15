@@ -5,7 +5,7 @@ import java.awt.event.*;
 import javax.swing.*; 
 
 public class main extends JFrame implements ActionListener {
-   Button b1,b2,b3,b4,b5,b6,b7,b8,b9;  
+   Button b1,b2,b3,b4,b5,b6,b7,b8,b9;
 main(){  
     super("House Management");  
     b1=new Button("1");
